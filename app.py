@@ -1,4 +1,4 @@
 print("Hello, World!")
 
-for i in range[1, 2, 3]:
-    print("XD" * i)
+for i in [1, 2, 3, 4, 5]:
+    print(f"{i} XD" + " XD" * i)
