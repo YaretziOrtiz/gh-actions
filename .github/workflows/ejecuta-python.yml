@@ -1,5 +1,5 @@
 name: Prueba ejecución de Script
-run-name: Script de Python en Ubuntu
+run-name: Script de JS en Ubuntu
 on: [push]
 jobs:
   ejecuta-script-node:
