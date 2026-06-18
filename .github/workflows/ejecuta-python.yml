@@ -1,6 +1,8 @@
 name: Prueba ejecución de Script
 run-name: Script de JS en Ubuntu
+
 on: [push]
+
 jobs:
   ejecuta-script-node:
     runs-on: ubuntu-latest
@@ -8,15 +10,10 @@ jobs:
       - run: echo "Inicia Actions"
       - run: node --version
       - name: Check out repository code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
       - run: ls -al
       - run: node app.js
 
-
-name: Prueba ejecución de Script
-run-name: Script de JS en Ubuntu
-on: [push]
-jobs:
   ejecuta-script-deno:
     runs-on: ubuntu-latest
     steps:
@@ -25,6 +22,6 @@ jobs:
         uses: denoland/setup-deno@v2
       - run: deno --version
       - name: Check out repository code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
       - run: ls -al
       - run: deno app.js
