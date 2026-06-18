@@ -2,12 +2,12 @@ name: Prueba ejecución de Script
 run-name: Script de Python en Ubuntu
 on: [push]
 jobs:
-  ejecuta-script-python:
+  ejecuta-script-node:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Inicia Actions"
-      - run: python --version
+      - run: node --version
       - name: Check out repository code
         uses: actions/checkout@v6
       - run: ls -al
-      - run: python app.py
+      - run: node app.js
