@@ -1,0 +1,31 @@
+name: Event Triggers
+run-name: Probando Triggers 
+on:
+    push:
+        branches:
+            - main
+            - feat/**
+
+    workflow_dispatch:
+        inputs:
+            tags:
+                description: 'Opcional'
+                required: false
+                type: boolean
+    
+    issues:
+        types: [opened, edited]
+
+    schedule:
+        - cron: '50 * * * *' # Ejecutar diariamente a medianoche
+
+jobs:
+  probando-triggers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inicia job
+        run: echo "Job starting..."
+      - name: Saludo
+        run: echo "Hola:)"
+      - name: Mensaje del evento
+        run: echo "The job was automatically triggered by the ${{ github.event_name }} event."
