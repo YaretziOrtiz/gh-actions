@@ -11,3 +11,9 @@ jobs:
       - run: cat file.txt
       - run: rm -rf file.txt
       - run: ls -al
+      - name: Clona proyecto
+        uses: actions/checkout@v3
+      - name: Definir variable
+        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
+      - run: echo $PATH
+      - run: python app.py
