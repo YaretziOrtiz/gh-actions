@@ -22,4 +22,4 @@ jobs:
               env:
                 NOMBRE: Yare
             - name: Leyendo variable de repositorio
-              run: echo "El valor de la variables es $NOMBRE"
+              run: echo "El valor de la variables es ${{ vars.NOMBRE }}"
