@@ -1,25 +1,33 @@
 name: Variables
 run-name: Workflow de actions usando variables
-on: 
-    [push, workflow_dispatch]
+
+on:
+  push:
+  workflow_dispatch:
+
 env:
-    First_Name: Yaretzi
-    DAY_OF_WEEK: Lunes 25
-    MONTH: Mayo
+  First_Name: Yaretzi
+  DAY_OF_WEEK: Lunes 25
+  MONTH: Mayo
+
 jobs:
-    variables:
-        runs-on: ubuntu-latest
+  variables:
+    runs-on: ubuntu-latest
+
+    env:
+      PORT: 8080
+
+    steps:
+      - name: Mostrar fecha
+        run: echo "Hoy es $DAY_OF_WEEK del mes de $MONTH"
+
+      - name: Mostrar puerto
+        run: echo "El puerto es $PORT"
+
+      - name: Mostrar nombre global
+        run: echo "Mi nombre es $First_Name"
+
+      - name: Leyendo variable de entorno
         env:
-            PORT: 8080
-        steps:
-            - name: Mostrar fecha
-              run: echo "Hoy es $DAY_OF_WEEK del mes de $MONTH"
-            - name: Mostrar puerto
-              run: echo "El puerto es $PORT"
-              env: 
-                First_Name: Yaretzi
-            - run: echo "Mi nombre es $First_Name"
-              env:
-                NOMBRE: Yare
-            - name: Leyendo variable de repositorio
-              run: echo "El valor de la variables es ${{ vars.NOMBRE }}"
+          NOMBRE: Yare
+        run: echo "El valor de la variable es $NOMBRE"
